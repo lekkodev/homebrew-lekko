@@ -5,7 +5,7 @@
 class Lekko < Formula
   desc "A new way of working with dynamic configuration."
   homepage "https://lekko.com/"
-  version "0.0.2"
+  version "0.0.3"
   license "Apache-2.0"
 
   depends_on "git"
@@ -13,8 +13,8 @@ class Lekko < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/lekkodev/cli/releases/download/v0.0.2/lekko_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "3002fa32f114b074642a9f30d2309a786051d7af0de78934539c4ba915dec965"
+      url "https://github.com/lekkodev/cli/releases/download/v0.0.3/lekko_Darwin_arm64.tar.gz"
+      sha256 "d88c5bd7b64a4b5729a52bedb81641e56ff00a4759f73da6f070e03734b091c8"
 
       def install
         bin.install "lekko"
@@ -24,8 +24,8 @@ class Lekko < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lekkodev/cli/releases/download/v0.0.2/lekko_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "1643a4a5cd28e2875452968595334dd43c651b2400e62bdb4dc0bf8e21196466"
+      url "https://github.com/lekkodev/cli/releases/download/v0.0.3/lekko_Linux_arm64.tar.gz"
+      sha256 "b983d307eb1cc079c21b306d6357ac040822ca16ba2e65539b2a80a78bc1df9a"
 
       def install
         bin.install "lekko"
