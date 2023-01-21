@@ -13,7 +13,7 @@ class Lekko < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/lekkodev/cli/releases/download/v0.0.2/lekko_Darwin_arm64.tar.gz"
+      url "https://github.com/lekkodev/cli/releases/download/v0.0.2/lekko_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
       sha256 "3002fa32f114b074642a9f30d2309a786051d7af0de78934539c4ba915dec965"
 
       def install
@@ -24,7 +24,7 @@ class Lekko < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lekkodev/cli/releases/download/v0.0.2/lekko_Linux_arm64.tar.gz"
+      url "https://github.com/lekkodev/cli/releases/download/v0.0.2/lekko_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
       sha256 "1643a4a5cd28e2875452968595334dd43c651b2400e62bdb4dc0bf8e21196466"
 
       def install
