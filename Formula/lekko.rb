@@ -6,7 +6,7 @@ require_relative "../lib/private_strategy"
 class Lekko < Formula
   desc "A new way of working with dynamic configuration."
   homepage "https://lekko.com/"
-  version "0.1.2"
+  version "0.1.3"
   license "Apache-2.0"
 
   depends_on "git"
@@ -14,8 +14,17 @@ class Lekko < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/lekkodev/cli/releases/download/v0.1.2/lekko_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "42973b13619cea1b798ce4db2831860a5ebe26e9ecbccda9a4838079d6055e34"
+      url "https://github.com/lekkodev/cli/releases/download/v0.1.3/lekko_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "017437703156795236fd71943c9fd7e8810584f2c9fe47a83d3963b2944368dc"
+
+      def install
+        bin.install "lekko"
+        # ...
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/lekkodev/cli/releases/download/v0.1.3/lekko_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "fb3245a7d1a1d1f46a39b1f6e7e8ec0a0c3e492e1ee645125eb0bd81d3b87a4f"
 
       def install
         bin.install "lekko"
@@ -26,8 +35,17 @@ class Lekko < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lekkodev/cli/releases/download/v0.1.2/lekko_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "73957bcaac5a5d9fcb064a7bf11a2ec6a8475498579d4ac494f69ad01155cd11"
+      url "https://github.com/lekkodev/cli/releases/download/v0.1.3/lekko_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "61aa24ae848697adee33794b12902c11f2f38859a3ab8e64292b1203a4056d88"
+
+      def install
+        bin.install "lekko"
+        # ...
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/lekkodev/cli/releases/download/v0.1.3/lekko_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "0c31c70daaf51207108b606f86a910c98447cc9fd96426283b6dc05214c5e022"
 
       def install
         bin.install "lekko"
