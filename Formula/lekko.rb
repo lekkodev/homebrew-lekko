@@ -6,15 +6,15 @@ require_relative "../lib/private_strategy"
 class Lekko < Formula
   desc "A new way of working with dynamic configuration."
   homepage "https://lekko.com/"
-  version "0.2.16"
+  version "0.2.17"
   license "Apache-2.0"
 
   depends_on "buf"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/lekkodev/cli/releases/download/v0.2.16/lekko_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "d3310135862b49d3729741f84aaedfd7cd9ce554cd7da7fc680f5632b9aedc13"
+      url "https://github.com/lekkodev/cli/releases/download/v0.2.17/lekko_Darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "206c844a41ebcfe6e5a7c00815075950ab4bc674fe3d07707cff6196d45d1c39"
 
       def install
         bin.install "lekko"
@@ -22,8 +22,8 @@ class Lekko < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/lekkodev/cli/releases/download/v0.2.16/lekko_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "2db3d1ea6d9d739c442d22cb5322ab63f4345503ca9e2c21b3626c39f8855e3d"
+      url "https://github.com/lekkodev/cli/releases/download/v0.2.17/lekko_Darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "6d6487ba1797077f80c308528f0fe6b13ea8aeb41222801a768699cfccc5c837"
 
       def install
         bin.install "lekko"
@@ -34,8 +34,8 @@ class Lekko < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lekkodev/cli/releases/download/v0.2.16/lekko_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "07b19d5e0e0bc365e8eb5922a538458aa58479f11b84e5fdac6775be17e0a06d"
+      url "https://github.com/lekkodev/cli/releases/download/v0.2.17/lekko_Linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "4d0d61683478f84b1a8949f418b59906608319842c2f24a58de0b384251d1f38"
 
       def install
         bin.install "lekko"
@@ -43,8 +43,8 @@ class Lekko < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/lekkodev/cli/releases/download/v0.2.16/lekko_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "fd9885d5b838ddf228aeda65469e4aa940f7948e49b7dff46e61b394a6852009"
+      url "https://github.com/lekkodev/cli/releases/download/v0.2.17/lekko_Linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "d497a926883456e9a11db297e77c88da0817b6a780d204832c65af028bb63780"
 
       def install
         bin.install "lekko"
