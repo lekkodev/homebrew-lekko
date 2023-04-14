@@ -44,8 +44,12 @@ class GitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   
     def initialize(url, name, version, **meta)
       super
+      puts "initialize! url:" + url + " name: " + name + " version: " + version
       parse_url_pattern
+      puts "parse url pattern results: owner/repo:" + @owner + "/" + @repo 
+      puts "tag: " + String(@tag) + "filename: " + @filename
       set_github_token
+      puts "github token:" + String(@github_token)
     end
   
     def parse_url_pattern
@@ -63,6 +67,7 @@ class GitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
     private
   
     def _fetch(url:, resolved_url:, timeout:)
+      puts "running parent fetch!"
       curl_download download_url, to: temporary_path
     end
   
@@ -117,15 +122,21 @@ class GitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
     def _fetch(url:, resolved_url:, timeout:)
       # HTTP request header `Accept: application/octet-stream` is required.
       # Without this, the GitHub API will respond with metadata, not binary.
+      puts "running child fetch!"
       curl_download download_url, "--header", "Accept: application/octet-stream", to: temporary_path
     end
   
     def asset_id
       @asset_id ||= resolve_asset_id
     end
+
+    def resolve_url_basename_time_file_size(url, timeout: nil)
+      [download_url, "", Time.now, 0, false]
+    end
   
     def resolve_asset_id
       release_metadata = fetch_release_metadata
+      puts "release metadata:" + String(release_metadata)
       assets = release_metadata["assets"].select { |a| a["name"] == @filename }
       raise CurlDownloadStrategyError, "Asset file not found." if assets.empty?
   
@@ -136,5 +147,6 @@ class GitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
       #release_url = "https://api.github.com/repos/#{@owner}/#{@repo}/releases/tags/#{@tag}"
       #GitHub::API.open_rest(release_url)
       GitHub.get_release(@owner, @repo, @tag)
+      puts "fetched release metadata!"
     end
   end
