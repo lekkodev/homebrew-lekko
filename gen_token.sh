@@ -4,17 +4,17 @@
 # that allows them to download Lekko's developer tools.
 # This script should be executed in the following context:
 #
-#   export LEKKO_APIKEY=lekko_************
+#   export LEKKO_API_KEY=lekko_************
 #   export HOMEBREW_GITHUB_API_TOKEN=$(./gen_token.sh)
 #   brew tap lekkodev/lekko
 #   brew install lekko
 # 
-# The script depends on the LEKKO_APIKEY environment variable. This apikey should be
+# The script depends on the LEKKO_API_KEY environment variable. This apikey should be
 # generated within the Lekko app for a specific team. The script also depends on the 
 # following tools:   brew, curl, jq
 # For upgrades, the following sequence of commands should be run:
 #
-#   export LEKKO_APIKEY=lekko_************
+#   export LEKKO_API_KEY=lekko_************
 #   export HOMEBREW_GITHUB_API_TOKEN=$(./gen_token.sh)
 #   brew upgrade lekko
 #
@@ -31,9 +31,9 @@ check_tool_exists() {
   fi
 }
 
-if [ -z $LEKKO_APIKEY ]
+if [ -z $LEKKO_API_KEY ]
 then
-  abort "env LEKKO_APIKEY could not be found" 
+  abort "env LEKKO_API_KEY could not be found" 
 fi
 
 # Fail fast with a concise message when not using bash
@@ -47,7 +47,7 @@ check_tool_exists curl
 check_tool_exists jq
 
 token=$(curl -s \
-  -H "apikey: $LEKKO_APIKEY" \
+  -H "apikey: $LEKKO_API_KEY" \
   -H "Content-Type: application/json" \
   -X POST -d '{}' \
   https://web.api.lekko.dev/lekko.backend.v1beta1.DistributionService/GetDeveloperAccessToken | jq -r .token)
