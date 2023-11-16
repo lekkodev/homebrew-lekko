@@ -13,7 +13,7 @@ class Lekko < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.6/lekko_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "3a3a0ed4e77a50c2634bcda853e18c7d86fcb92dd9eeb6c71e58040b9644296d"
+      sha256 "6e620734c60b1a0b0b33b8ff3c1bacbae73718ebe7220b2437dadc1589b22080"
 
       def install
         bin.install "lekko"
@@ -22,7 +22,7 @@ class Lekko < Formula
     end
     if Hardware::CPU.intel?
       url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.6/lekko_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "7d1d09ad683d3d690048d71f5543fa76c62993bf0ae4eeac238af199a26e4614"
+      sha256 "d6750902028e6cf584b069a46fd254811b6eb56cd472b5c08416d748bffed527"
 
       def install
         bin.install "lekko"
@@ -34,7 +34,7 @@ class Lekko < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.6/lekko_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "c92060cdf2f5f9835dd7f30e618cf9a18e2e8743c8a0138b569020a285b3750f"
+      sha256 "0903974a2b9a16528a91f7208045c0caea3a5edc83ff894e9692343f960c144e"
 
       def install
         bin.install "lekko"
@@ -43,7 +43,7 @@ class Lekko < Formula
     end
     if Hardware::CPU.intel?
       url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.6/lekko_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "c65c3e1357bf3381567e1c1a0a544809e1cb6acb332a8eae9c14de385c054f78"
+      sha256 "c0a1ccc92cd426f6c94cef51ebcba00547e628e41a0de717a7cce6ab5a35f6ad"
 
       def install
         bin.install "lekko"
