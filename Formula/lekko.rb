@@ -5,15 +5,15 @@
 class Lekko < Formula
   desc "A new way of working with dynamic configuration."
   homepage "https://lekko.com/"
-  version "0.3.27"
+  version "0.3.28"
   license "Apache-2.0"
 
   depends_on "buf"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.27/lekko_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "8abedb0b80b8d7a9c7559c5d9222e3f1e38e6dc75d4247b31ce41a51c1845275"
+      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.28/lekko_Darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "5dd9557d13212a4dba906d56eb4948da27a83419b9216a5d9f2872d1a78e1587"
 
       def install
         bin.install "lekko"
@@ -21,8 +21,8 @@ class Lekko < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.27/lekko_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "cba7c3ddb1d16bb8aaa67306cb1c77fe98f07ea57216a4e9c4da7e20712d2db0"
+      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.28/lekko_Darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "bfe6da48c85f970bfa591d726357ab53497a2b6e963106a8d80826ab507d3419"
 
       def install
         bin.install "lekko"
@@ -33,8 +33,8 @@ class Lekko < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.27/lekko_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "67df647ec2c5dc828168c82328b77e4230cb2513549c8ba07ff61f11e9d98dd1"
+      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.28/lekko_Linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "cd79762009bfe2a3641cafd7f619f79ba5c003e7f245894bcede6bdf7a94b649"
 
       def install
         bin.install "lekko"
@@ -42,8 +42,8 @@ class Lekko < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.27/lekko_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "9fc2a30f1976c851bbdeacd8815060ff3a49c4b101dc6090b9ad623700424745"
+      url "https://lekko-cli-releases.s3.amazonaws.com/v0.3.28/lekko_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "9617ffeb203e1de01abc7c4536cf99c404820838a27090b6a590720a5a95df07"
 
       def install
         bin.install "lekko"
